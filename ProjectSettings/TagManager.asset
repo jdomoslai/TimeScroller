@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Reset
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - 
   - Reset
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -45,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 3429504631
     locked: 0
-  - name: Ground
+  - name: Foreground
     uniqueID: 459136699
+    locked: 0
+  - name: Interactable
+    uniqueID: 1192922071
     locked: 0

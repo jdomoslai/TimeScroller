@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private BackgroundElement[] backgroundElements;
+    private BackgroundElement[] backgroundElements; // Ground
+
+    [SerializeField]
+    public static List<MovableElement> movableElements; // Background objects
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        movableElements = new List<MovableElement>();
     }
 
     // Update is called once per frame
@@ -19,6 +23,14 @@ public class GameManager : MonoBehaviour
         foreach (BackgroundElement element in backgroundElements)
         {
             element.Move();
+        }
+
+        if (movableElements.Count > 0)
+        {
+            foreach (MovableElement element in movableElements)
+            {
+                element.Move();
+            }
         }
     }
 }
