@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * @author: Nicolas Prezio
+ * This class checks to see if the character is on the ground
+ * It is used for the jump mechanic
+ */
+
 public class Grounded : MonoBehaviour
 {
     //editor variables

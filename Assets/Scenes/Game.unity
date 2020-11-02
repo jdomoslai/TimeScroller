@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   jumpHeight: 7
+  jumpCount: 2
   animator: {fileID: 650363302}
   isGrounded: 0
 --- !u!95 &650363302

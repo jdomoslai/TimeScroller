@@ -1,15 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 /*
+ * @author: Nicolas Prezio
  * Sprint 1: Got the basic character movement and ground collision working
  * Most of the animation work is done
  * character can only jump once
- * SPRINT 2: ToDo: Continue fleshing out character movement
- * fix crouching
- * add double jumping and dodging
+ * SPRINT 2: Continued fleshing out character movement
+ * removed crouching and replaced it with a "dodge" mechanic
+ * added double jumping
+ * all animation is working as intended
  */
 
 public class CharacterMovement : MonoBehaviour
@@ -17,28 +20,22 @@ public class CharacterMovement : MonoBehaviour
     //editor variables
     public float movementSpeed;
     public float jumpHeight;
+    public int jumpCount;
     public Animator animator;
     public bool isGrounded = false;
 
     //private variables
-    //private bool facingRight;
-    private bool isCrouched;
+    private bool isDodging;
     private Rigidbody2D characterRBody;
+    private int jumps;
     //private float horizontalPos = 0.0f; 
 
     // Start is called before the first frame update
     private void Start()
     {
         //facingRight = true;
-        //isCrouched = false;
         characterRBody = GetComponent<Rigidbody2D>();
-    }
-
-    //FixedUpdate is called at regular intervals
-    private void FixedUpdate()
-    {
-        //horizontalPos = Input.GetAxis("Horizontal");
-        //animator.SetFloat("Horizontal", horizontalPos);
+        jumps = 1;
     }
 
     // Update is called once per frame
@@ -53,39 +50,40 @@ public class CharacterMovement : MonoBehaviour
         //Flip(horizontalPos);
 
         //jump
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        animator.SetBool("isJumping", !isGrounded);
+        if (Input.GetKeyDown(KeyCode.Space) && jumps != jumpCount && !isDodging)
         {
+            jumps++;
             characterRBody.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);
         }
-
-        //if they are not grounded we should be playing jump anim
-        if (!isGrounded)
-            animator.Play("Jump");
-        else if (isGrounded && !isCrouched) // this probably can't stay because of other cases.
-            animator.Play("Idle");
-
-        //crouch
-        if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.C))
+        if(isGrounded)
         {
-            if(isCrouched)
-            {
-                Debug.Log("no longer crouching");
-                animator.Play("Idle");
-                isCrouched = !isCrouched;
-            }
-            else
-            {
-                animator.Play("crouch");
-                isCrouched = true;
-            }
+            jumps = 1;
+        }
+
+        //dodge
+        animator.SetBool("isDodging", isDodging);
+        if (Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.C))
+        {
+            isDodging = true;
+            StartCoroutine(waitForDodge());
+
+            //Still to do once we figure out some other stuff first:
+            //when the character is dodging they should be invincable for the duration
         }
     }
 
     /*
-     * This method will simply check to see which direction the
-     * player is running and flip the sprite so the character
-     * is facing the right way
+     * This method will wait for a set amount of time
+     * Used for animating dodge
      */
+    IEnumerator waitForDodge() { yield return new WaitForSeconds(1); isDodging = false; }
+
+    /*
+    * This method will simply check to see which direction the
+    * player is running and flip the sprite so the character
+    * is facing the right way
+    */
     //private void Flip(float horizontal)
     //{
     //    if(horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
@@ -96,4 +94,5 @@ public class CharacterMovement : MonoBehaviour
     //        transform.localScale = characterScale;
     //    }
     //}
+
 }
