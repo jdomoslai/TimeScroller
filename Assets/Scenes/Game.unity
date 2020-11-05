@@ -886,6 +886,10 @@ MonoBehaviour:
   - {fileID: 5664477929818631961, guid: 0222f5a12e72edb41adc3328a687a31f, type: 3}
   - {fileID: 438305855511031150, guid: 7ab60f1038e29c64f85f295c31cc99d1, type: 3}
   - {fileID: 2443669388813356849, guid: 6412195170083324ea6243bc9da3be45, type: 3}
+  spawnSecondsPlatforms: 5
+  deleteSecondsPlatforms: 12
+  spawnSecondsObstacles: 5
+  deleteSecondsObstacles: 12
 --- !u!1 &1850767729
 GameObject:
   m_ObjectHideFlags: 0
