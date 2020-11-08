@@ -10,21 +10,21 @@ using UnityEngine;
 
 public class Grounded : MonoBehaviour
 {
-    //editor variables
-    public GameObject player;
+    //private variables
+    private GameObject sprite;
 
     // Start is called before the first frame update
     void Start()
     {
         //this script is a child of the player game object
         //so this gets the player
-        player = gameObject.transform.parent.gameObject;
+        sprite = gameObject.transform.parent.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //has the character landed?
@@ -32,7 +32,10 @@ public class Grounded : MonoBehaviour
     {
         if(collision.collider.tag == "Ground")
         {
-            player.GetComponent<CharacterMovement>().isGrounded = true;
+            if (sprite.name == "Nameless")
+                sprite.GetComponent<CharacterMovement>().isGrounded = true;
+            if (sprite.name == "Frog")
+                sprite.GetComponent<Frog>().isGrounded = true;
         }
     }
 
@@ -41,7 +44,10 @@ public class Grounded : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
-            player.GetComponent<CharacterMovement>().isGrounded = false;
+            if (sprite.name == "Nameless")
+                sprite.GetComponent<CharacterMovement>().isGrounded = false;
+            if (sprite.name == "Frog")
+                sprite.GetComponent<Frog>().isGrounded = false;
         }
     }
 }
