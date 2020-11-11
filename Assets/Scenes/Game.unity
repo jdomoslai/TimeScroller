@@ -763,6 +763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea8d4d416b21ae4f8805b67e0d42143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
+  Time: 0
+  rewarded: 0
   player: {fileID: 519420032}
   scoreText: {fileID: 857726745}
   walls: {fileID: 0}

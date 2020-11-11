@@ -29,14 +29,14 @@ public class GameManager : MonoBehaviour
         f_dis += 1 * Time.deltaTime;
         dis = (int)f_dis;
 
-        distanceText.text = "Source:" +  dis.ToString();
+        distanceText.text = "Score:" +  dis.ToString();
     }
 
     //this is for upadte the times( i need it to put player controller)
     public void UpdateBonus(int count)
     {
         dis += count;
-        distanceText.text = "Source:" + dis.ToString();
+        distanceText.text = "Score:" + dis.ToString();
 
     }
 
