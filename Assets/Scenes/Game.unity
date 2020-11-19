@@ -888,7 +888,7 @@ MonoBehaviour:
   - {fileID: 2443669388813356849, guid: 6412195170083324ea6243bc9da3be45, type: 3}
   spawnSecondsPlatforms: 5
   deleteSecondsPlatforms: 12
-  spawnSecondsObstacles: 5
+  spawnSecondsObstacles: 6
   deleteSecondsObstacles: 12
 --- !u!1 &1850767729
 GameObject:
