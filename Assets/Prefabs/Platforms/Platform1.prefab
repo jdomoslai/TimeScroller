@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2718980352176166397}
   - component: {fileID: 2848067394334858051}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Platform_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +92,9 @@ GameObject:
   - component: {fileID: 3577039177709894629}
   - component: {fileID: 3646536404154997104}
   - component: {fileID: 438305855511031150}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Platform1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5998615602856308156}
   - component: {fileID: 2706242437262291999}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

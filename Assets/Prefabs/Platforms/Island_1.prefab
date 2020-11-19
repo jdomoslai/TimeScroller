@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2105919935696459154}
   - component: {fileID: 7385455246535654265}
   - component: {fileID: 7673015277048265509}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: Island_1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
