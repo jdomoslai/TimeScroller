@@ -295,6 +295,12 @@ MonoBehaviour:
   - {fileID: 8173447323523708669, guid: 89a88dfe8280fff4e925de5805909d30, type: 3}
   - {fileID: 1637189354196022387, guid: 4c09b19f5a184ab4397eddaa2265de0d, type: 3}
   - {fileID: 9068933542035206963, guid: 9ecce84c97cbe9a4b86a6e33925e7028, type: 3}
+  - {fileID: 1531982079140044330, guid: 85f3ffaf3c44b75459586d630e89c4af, type: 3}
+  - {fileID: 8606178010392881071, guid: 92535e15f35559944a2d2a1f95e9eaa1, type: 3}
+  - {fileID: 5178754111864603792, guid: 68b4a51d6c4872b4eac195fda72d2946, type: 3}
+  - {fileID: 8808924228740440964, guid: 126e5f75489fcc54cb8c6dc3624d3ca2, type: 3}
+  - {fileID: 7676750879470214095, guid: 60a5c7c0d3f66074ba4a89f699c6a171, type: 3}
+  - {fileID: 6060716983631590007, guid: 670e1ebcc1998d44aae1f3dbc4e37eb8, type: 3}
 --- !u!50 &330938291
 Rigidbody2D:
   serializedVersion: 4
@@ -783,6 +789,12 @@ MonoBehaviour:
   - {fileID: 8173447323523708669, guid: 89a88dfe8280fff4e925de5805909d30, type: 3}
   - {fileID: 1637189354196022387, guid: 4c09b19f5a184ab4397eddaa2265de0d, type: 3}
   - {fileID: 9068933542035206963, guid: 9ecce84c97cbe9a4b86a6e33925e7028, type: 3}
+  - {fileID: 1531982079140044330, guid: 85f3ffaf3c44b75459586d630e89c4af, type: 3}
+  - {fileID: 8606178010392881071, guid: 92535e15f35559944a2d2a1f95e9eaa1, type: 3}
+  - {fileID: 5178754111864603792, guid: 68b4a51d6c4872b4eac195fda72d2946, type: 3}
+  - {fileID: 8808924228740440964, guid: 126e5f75489fcc54cb8c6dc3624d3ca2, type: 3}
+  - {fileID: 7676750879470214095, guid: 60a5c7c0d3f66074ba4a89f699c6a171, type: 3}
+  - {fileID: 6060716983631590007, guid: 670e1ebcc1998d44aae1f3dbc4e37eb8, type: 3}
 --- !u!50 &771297190
 Rigidbody2D:
   serializedVersion: 4
@@ -1079,6 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1638305143}
   - component: {fileID: 1638305142}
+  - component: {fileID: 1638305144}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1115,6 +1128,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1638305144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638305141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593d02dd6ecf6854a9a0e40f3d7890e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacles:
+  - {fileID: 2475472916504431240, guid: 0c6156048246501498ac0874e727b825, type: 3}
+  - {fileID: 7405193523532113245, guid: b94b340bf939d6d4da96481ca8dd82b8, type: 3}
+  - {fileID: 1204304735638052426, guid: 8b94cb1b48554f74997cbd59ed32f892, type: 3}
+  - {fileID: 4723677869484191736, guid: 763aee5b72a8f6442b15966a3e0ecc16, type: 3}
+  - {fileID: 5711765975316065921, guid: 4810d4750412b134b95cf61fe6312a28, type: 3}
+  - {fileID: 3363759222677730569, guid: c60c3d4815a09a74bb40940385a3fce8, type: 3}
+  platforms:
+  - {fileID: 7673015277048265509, guid: 9c1e6717b4542c64dbc17d6779bf14e0, type: 3}
+  - {fileID: 5664477929818631961, guid: 0222f5a12e72edb41adc3328a687a31f, type: 3}
+  - {fileID: 438305855511031150, guid: 7ab60f1038e29c64f85f295c31cc99d1, type: 3}
+  - {fileID: 2443669388813356849, guid: 6412195170083324ea6243bc9da3be45, type: 3}
+  spawnSecondsPlatforms: 5
+  deleteSecondsPlatforms: 12
+  spawnSecondsObstacles: 6
+  deleteSecondsObstacles: 12
 --- !u!1 &1850767729
 GameObject:
   m_ObjectHideFlags: 0
