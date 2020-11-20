@@ -114,6 +114,6 @@ public class MovableObstacle : MonoBehaviour
     // Returns a random position within the camera's Y range
     private float RandomPosition()
     {
-        return Random.Range(-3.0f, 5.0f);
+        return Random.Range(-3.0f, 3.0f);
     }
 }

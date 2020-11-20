@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4787962724295263104}
   - component: {fileID: 7348176740670471072}
   - component: {fileID: 7405193523532113245}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: On (24x8)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,3 +193,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   stationary: 1
+  platform: 0

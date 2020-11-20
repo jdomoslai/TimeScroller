@@ -533,7 +533,7 @@ GameObject:
   - component: {fileID: 650363302}
   m_Layer: 9
   m_Name: Nameless
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1151,7 +1151,6 @@ MonoBehaviour:
   - {fileID: 7673015277048265509, guid: 9c1e6717b4542c64dbc17d6779bf14e0, type: 3}
   - {fileID: 5664477929818631961, guid: 0222f5a12e72edb41adc3328a687a31f, type: 3}
   - {fileID: 438305855511031150, guid: 7ab60f1038e29c64f85f295c31cc99d1, type: 3}
-  - {fileID: 2443669388813356849, guid: 6412195170083324ea6243bc9da3be45, type: 3}
   spawnSecondsPlatforms: 5
   deleteSecondsPlatforms: 12
   spawnSecondsObstacles: 6
