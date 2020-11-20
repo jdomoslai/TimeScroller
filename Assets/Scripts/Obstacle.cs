@@ -23,7 +23,7 @@ public class Obstacle : MonoBehaviour
     // Does not destroy GameObject as MovableObstacles script handles create/destroy
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!platform && collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             // Remove colliders
             Collider2D[] colliderArray = GetComponents<Collider2D>();
