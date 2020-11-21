@@ -7,6 +7,8 @@ TagManager:
   - Reset
   - Interactable
   - Ground
+  - Bonus1
+  - Bonus2
   layers:
   - Default
   - TransparentFX
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 1192922071
+    locked: 0
+  - name: Bonus
+    uniqueID: 410204841
     locked: 0
