@@ -1,0 +1,1 @@
+{"highScoreEntries":[{"score":30},{"score":23},{"score":19},{"score":16},{"score":13},{"score":13},{"score":8},{"score":8},{"score":6},{"score":5}]}

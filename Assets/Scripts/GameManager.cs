@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,10 +15,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public static List<MovableElement> movableElements; // Background objects
 
+    private HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
+
     //for the source
     private Text distanceText;
     private float f_dis = 0;
     private int dis = 0;
+
+    private void Awake()
+    {
+        ScoreSystem.Init();
+        Load();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +40,7 @@ public class GameManager : MonoBehaviour
         f_dis += 1 * Time.deltaTime;
         dis = (int)f_dis;
 
-        distanceText.text = "Score:" +  dis.ToString();
+        distanceText.text = "Score:" + dis.ToString();
     }
 
     //this is for upadte the times( i need it to put player controller)
@@ -73,7 +83,54 @@ public class GameManager : MonoBehaviour
         // Exit to main menu
         if (Input.GetKeyDown("escape"))
         {
+            Save();
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
+    }
+
+    // Saves scores to file
+    private void Save()
+    {
+        // Add and sort entries
+        HighScoreEntry highScoreEntry = new HighScoreEntry { score = dis };
+
+        highScores.highScoreEntries.Add(highScoreEntry);
+
+        highScores.highScoreEntries = highScores.highScoreEntries.OrderByDescending(x => x.score).Take(10).ToList();
+
+        string json = JsonUtility.ToJson(highScores);
+
+        ScoreSystem.Save(json);
+    }
+
+    // Loads scores from file
+    private void Load()
+    {
+        string scoreString = ScoreSystem.Load();
+
+        if (scoreString != null)
+        {
+            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+        }
+    }
+
+    /*
+     * Inner HighScores class
+     * Houses List of HighScoreEntries
+     */
+    private class HighScores
+    {
+        public List<HighScoreEntry> highScoreEntries;
+    }
+
+    /*
+     * Inner HighScoreEntryClass
+     * A serializable highscore entry
+     */
+    [System.Serializable]
+    private class HighScoreEntry
+    {
+        public int score;
     }
 }
