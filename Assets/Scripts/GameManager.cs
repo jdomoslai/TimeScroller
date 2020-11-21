@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
             {
                 element.Move();
             }
+        }
+
+        // Exit to main menu
+        if (Input.GetKeyDown("escape"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }
