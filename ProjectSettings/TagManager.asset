@@ -6,8 +6,7 @@ TagManager:
   tags:
   - Reset
   - Interactable
-  - Bonus1
-  - Bonus2
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -19,7 +18,8 @@ TagManager:
   - 
   - Reset
   - Interactable
-  - 
+  - Enemy
+  - Obstacles
   - 
   - 
   - 
