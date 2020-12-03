@@ -22,7 +22,17 @@ public class GameManager : MonoBehaviour
     //for the source
     private Text distanceText;
     private float f_dis = 0;
-    private int dis = 0;
+    public static int dis = 0;
+
+    public static int enemyThresholdCount;      // Score to increase speeds
+    public static float enemySpeed = 5.0f;      // Current enemy speed
+    public static float enemyIncrease = 0.5f;   // Amount to increase enemy speed by
+    public static int enemyThreshold = 75;      // Amount to add to enemy score threshold count
+
+    public static int obstacleThresholdCount;      // Score to increase speeds
+    public static float obstacleSpeed = 5.0f;      // Current enemy speed
+    public static float obstacleIncrease = 0.5f;   // Amount to increase enemy speed by
+    public static int obstacleThreshold = 100;      // Amount to add to enemy score threshold count
 
     private static GameManager _instance;
 
@@ -44,6 +54,8 @@ public class GameManager : MonoBehaviour
         initPlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position.x;
         distanceText = GameObject.Find("DistanceText").GetComponent<Text>();
         movableElements = new List<MovableElement>();
+        enemyThresholdCount = enemyThreshold;
+        obstacleThresholdCount = obstacleThreshold;
     }
 
     private void UpdateDistance()

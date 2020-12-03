@@ -13,6 +13,22 @@ public class Obstacle : MonoBehaviour
     [SerializeField]
     private bool platform;
 
+    private void Start()
+    {
+        // Start obstacle speed faster at higher scores
+        speed = GameManager.obstacleSpeed;
+    }
+
+    private void Update()
+    {
+        // If score is high enough increase obstacle speed
+        if (GameManager.dis > GameManager.obstacleThresholdCount)
+        {
+            GameManager.obstacleThresholdCount += GameManager.obstacleThreshold;
+            GameManager.obstacleSpeed += GameManager.obstacleIncrease;
+        }
+    }
+
     // Moves GameObjects to the left
     public void Move()
     {

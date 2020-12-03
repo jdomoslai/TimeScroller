@@ -1392,7 +1392,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 3810743310763105759, guid: 78e8abda3a3514541a75d15a00d770f5, type: 3}
   - {fileID: 4029136882896618312, guid: bb0822a95d76246468ffa891fc1b29ee, type: 3}
-  spawnSecondsPowerUps: 5
+  spawnSecondsPowerUps: 12
 --- !u!1 &1850767729
 GameObject:
   m_ObjectHideFlags: 0

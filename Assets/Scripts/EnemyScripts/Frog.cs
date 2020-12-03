@@ -19,12 +19,22 @@ public class Frog : Enemy
         myRigidbody = GetComponent<Rigidbody2D>();
         isGrounded = false;
         StartCoroutine(JumpLogic(jumpDelay));
+
+        // Start enemy speed faster at higher scores
+        speed = GameManager.enemySpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
         animator.SetBool("isJumping", !isGrounded);
+
+        // If score is high enough increase enemy speed
+        if (GameManager.dis > GameManager.enemyThresholdCount)
+        {
+            GameManager.enemyThresholdCount += GameManager.enemyThreshold;
+            GameManager.enemySpeed += GameManager.enemyIncrease;
+        }
     }
 
     //the jumping logic
