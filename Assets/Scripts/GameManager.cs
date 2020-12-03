@@ -22,10 +22,18 @@ public class GameManager : MonoBehaviour
     private float f_dis = 0;
     private int dis = 0;
 
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get { return _instance; }
+    }
+
     private void Awake()
     {
         ScoreSystem.Init();
         Load();
+        _instance = this;
     }
 
     // Start is called before the first frame update
@@ -46,22 +54,11 @@ public class GameManager : MonoBehaviour
     //this is for upadte the times( i need it to put player controller)
     public void UpdateBonus(int count)
     {
-        dis += count;
+        f_dis += (count * 2);
+        dis = (int)f_dis;
         distanceText.text = "Score:" + dis.ToString();
 
     }
-
-    //this is for the algorithm for timed release of power ups
-    //private void OnTriggerEnter2D(Collider2D coll)
-    //{
-    //    if (coll.gameObject.tag == "Bonus1")
-    //    {
-    //        GameManager.Instance.UpdateBonus(5);
-    //        //gameManager.UpdateBonus(5);
-    //        Destroy(coll.gameObject);
-    //    }
-    //}
-
 
     // Update is called once per frame
     void Update()
