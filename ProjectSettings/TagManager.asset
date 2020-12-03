@@ -7,8 +7,9 @@ TagManager:
   - Reset
   - Interactable
   - Ground
-  - Bonus1
   - PowerReset
+  - BonusDistance
+  - BonusScore
   layers:
   - Default
   - TransparentFX

@@ -18,10 +18,29 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            GameManager.Instance.UpdateBonus(5);
+            switch (this.gameObject.tag)
+            {
+                case "BonusScore":
+                    // Increase player score
+                    GameManager.Instance.UpdateBonus(5);
+                    break;
+                case "BonusDistance":
+                    // Pushes player's x position forward
+                    if (GameManager.initPlayerPosition > GameObject.FindGameObjectWithTag("Player").transform.position.x)
+                    {
+                        float newPositionX = GameObject.FindGameObjectWithTag("Player").transform.position.x + 1.0f;
+                        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector2(newPositionX, GameObject.FindGameObjectWithTag("Player").transform.position.y);
+                    }
+                    break;
+                default:
+                    Delete();
+                    break;
+            }
+
             Delete();
         }
 
+        
         if (collision.tag == "PowerReset")
         {
             Delete();

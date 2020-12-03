@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public static List<MovableElement> movableElements; // Background objects
 
+    public static float initPlayerPosition; // Initial player position
+
     private HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
 
     //for the source
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        initPlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position.x;
         distanceText = GameObject.Find("DistanceText").GetComponent<Text>();
         movableElements = new List<MovableElement>();
     }
