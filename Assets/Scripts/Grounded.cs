@@ -11,7 +11,7 @@ using UnityEngine;
 public class Grounded : MonoBehaviour
 {
     //private variables
-    private GameObject sprite;
+    private GameObject sprite = null;
 
     // Start is called before the first frame update
     void Start()

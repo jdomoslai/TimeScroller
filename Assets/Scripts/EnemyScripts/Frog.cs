@@ -8,10 +8,10 @@ public class Frog : Enemy
     public float jumpHeight;
     public bool isGrounded;
     public float jumpDelay;
-    public Animator animator;
+    public Animator animator = null;
 
     //private variables
-    private Rigidbody2D myRigidbody;
+    private Rigidbody2D myRigidbody = null;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Frog : Enemy
     //the jumping logic
     IEnumerator JumpLogic(float jumpDelay)
     {
-        while (true)
+        while (this != null)
         {
             yield return new WaitForSeconds(jumpDelay);
             myRigidbody.AddForce(new Vector2(0f, jumpHeight), ForceMode2D.Impulse);

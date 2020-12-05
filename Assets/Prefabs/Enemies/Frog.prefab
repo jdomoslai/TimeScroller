@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  deathAnim:
+  - {fileID: 3558124911987604685, guid: 5e12dd04ffcdf1b43bfabe47d31877e4, type: 3}
   jumpHeight: 4
   isGrounded: 0
   jumpDelay: 1

@@ -7,6 +7,7 @@ TagManager:
   - Reset
   - Interactable
   - Ground
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 /*
  * @author: Nicolas Prezio
@@ -21,7 +22,7 @@ public class CharacterMovement : MonoBehaviour
     public float movementSpeed;
     public float jumpHeight;
     public int jumpCount;
-    public Animator animator;
+    public Animator animator = null;
     public bool isGrounded = false;
 
     //private variables
@@ -78,6 +79,32 @@ public class CharacterMovement : MonoBehaviour
      * Used for animating dodge
      */
     IEnumerator waitForDodge() { yield return new WaitForSeconds(1); isDodging = false; }
+
+    /*
+     * This method is used to detect when the player collides with something
+     */
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.collider.GetComponent<Enemy>();
+
+        //if there is an enemy that means we hit one
+        if (enemy != null)
+        {
+            foreach(ContactPoint2D point in collision.contacts)
+            {
+                if (point.normal.y >= 0.9f)
+                {
+                    enemy.Die();
+                    characterRBody.AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
+                }
+                else
+                {
+                    //player dies, restart the scene
+                    SceneManager.LoadScene("Game");
+                }
+            }
+        }
+    }
 
     /*
     * This method will simply check to see which direction the

@@ -6,10 +6,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private BackgroundElement[] backgroundElements; // Ground
+    private BackgroundElement[] backgroundElements = null; // Ground
 
     [SerializeField]
-    public static List<MovableElement> movableElements; // Background objects
+    public static List<MovableElement> movableElements = null; // Background objects
 
     // Start is called before the first frame update
     void Start()
