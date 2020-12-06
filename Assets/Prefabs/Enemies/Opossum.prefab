@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1184719896948901020}
   - component: {fileID: 5296254110123504924}
   - component: {fileID: 9023440274307716800}
-  - component: {fileID: 4882452800945491013}
   - component: {fileID: 8099281994842525781}
   - component: {fileID: 3667193696703302273}
+  - component: {fileID: 9169879328272194946}
   m_Layer: 10
   m_Name: Opossum
   m_TagString: Untagged
@@ -106,22 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &4882452800945491013
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3525139733438464288}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.03483038, y: -0.026429439}
-  serializedVersion: 2
-  m_Radius: 0.09814308
 --- !u!95 &8099281994842525781
 Animator:
   serializedVersion: 3
@@ -154,5 +138,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  deathAnim:
-  - {fileID: 3558124911987604685, guid: 5e12dd04ffcdf1b43bfabe47d31877e4, type: 3}
+--- !u!61 &9169879328272194946
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3525139733438464288}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03543526, y: -0.04733608}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.36, y: 0.28}
+    newSize: {x: 0.36, y: 0.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2277075, y: 0.15024771}
+  m_EdgeRadius: 0

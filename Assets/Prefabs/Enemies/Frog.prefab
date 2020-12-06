@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4873466663566743887}
   - component: {fileID: 4873466663566743882}
   - component: {fileID: 4873466663566743883}
-  - component: {fileID: 1511212358}
+  - component: {fileID: 880667164435871495}
   m_Layer: 10
   m_Name: Frog
   m_TagString: Untagged
@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  deathAnim:
-  - {fileID: 3558124911987604685, guid: 5e12dd04ffcdf1b43bfabe47d31877e4, type: 3}
   jumpHeight: 4
   isGrounded: 0
   jumpDelay: 1
@@ -145,8 +143,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!58 &1511212358
-CircleCollider2D:
+--- !u!61 &880667164435871495
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,9 +156,19 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0047451854, y: -0.013796151}
+  m_Offset: {x: 0, y: -0.017186984}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.35, y: 0.32}
+    newSize: {x: 0.35, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.09353878
+  m_Size: {x: 0.2510607, y: 0.17613873}
+  m_EdgeRadius: 0
 --- !u!1 &4873466664338321830
 GameObject:
   m_ObjectHideFlags: 0
