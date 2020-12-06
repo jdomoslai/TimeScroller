@@ -7,6 +7,9 @@ TagManager:
   - Reset
   - Interactable
   - Ground
+  - PowerReset
+  - BonusDistance
+  - BonusScore
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,6 @@ TagManager:
   - Interactable
   - Enemy
   - Obstacles
-  - 
   - 
   - 
   - 
