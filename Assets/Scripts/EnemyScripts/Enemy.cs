@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 1;
+    public float speed = 1;
 
     // Moves Enemies to the left
     public void Move()
@@ -31,5 +31,20 @@ public class Enemy : MonoBehaviour
     public float getSpeed()
     {
         return speed;
+    }
+    private void Start()
+    {
+        // Start enemy speed faster at higher scores
+        speed = GameManager.enemySpeed;
+    }
+
+    private void Update()
+    {
+        // If score is high enough increase enemy speed
+        if (GameManager.dis > GameManager.enemyThresholdCount)
+        {
+            GameManager.enemyThresholdCount += GameManager.enemyThreshold;
+            GameManager.enemySpeed += GameManager.enemyIncrease;
+        }
     }
 }

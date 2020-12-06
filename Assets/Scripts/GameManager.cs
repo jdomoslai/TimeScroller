@@ -15,24 +15,47 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public static List<MovableElement> movableElements = null; // Background objects
 
+    public static float initPlayerPosition; // Initial player position
+
     private HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
 
     //for the source
     private Text distanceText;
     private float f_dis = 0;
-    private int dis = 0;
+    public static int dis = 0;
+
+    public static int enemyThresholdCount;      // Score to increase speeds
+    public static float enemySpeed = 5.0f;      // Current enemy speed
+    public static float enemyIncrease = 0.5f;   // Amount to increase enemy speed by
+    public static int enemyThreshold = 75;      // Amount to add to enemy score threshold count
+
+    public static int obstacleThresholdCount;      // Score to increase speeds
+    public static float obstacleSpeed = 5.0f;      // Current enemy speed
+    public static float obstacleIncrease = 0.5f;   // Amount to increase enemy speed by
+    public static int obstacleThreshold = 100;      // Amount to add to enemy score threshold count
+
+    private static GameManager _instance;
+
+    public static GameManager Instance
+    {
+        get { return _instance; }
+    }
 
     private void Awake()
     {
         ScoreSystem.Init();
         Load();
+        _instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        initPlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position.x;
         distanceText = GameObject.Find("DistanceText").GetComponent<Text>();
         movableElements = new List<MovableElement>();
+        enemyThresholdCount = enemyThreshold;
+        obstacleThresholdCount = obstacleThreshold;
     }
 
     private void UpdateDistance()
@@ -46,22 +69,11 @@ public class GameManager : MonoBehaviour
     //this is for upadte the times( i need it to put player controller)
     public void UpdateBonus(int count)
     {
-        dis += count;
+        f_dis += (count * 2);
+        dis = (int)f_dis;
         distanceText.text = "Score:" + dis.ToString();
 
     }
-
-    //this is for the algorithm for timed release of power ups
-    //private void OnTriggerEnter2D(Collider2D coll)
-    //{
-    //    if (coll.gameObject.tag == "Bonus1")
-    //    {
-    //        GameManager.Instance.UpdateBonus(5);
-    //        //gameManager.UpdateBonus(5);
-    //        Destroy(coll.gameObject);
-    //    }
-    //}
-
 
     // Update is called once per frame
     void Update()

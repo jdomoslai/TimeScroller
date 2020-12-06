@@ -15,25 +15,15 @@ public class MovableObstacle : MonoBehaviour
     private float spawnSecondsPlatforms;
 
     [SerializeField]
-    private float deleteSecondsPlatforms;
-
-    [SerializeField]
     private float spawnSecondsObstacles;
 
-    [SerializeField]
-    private float deleteSecondsObstacles;
+    public static List<Obstacle> movingObstacles;
 
-    private List<Obstacle> movingObstacles;
-
-    private List<Obstacle> movingPlatforms;
+    public static List<Obstacle> movingPlatforms;
 
     private float spawnTimePlatforms;
 
-    private float deleteTimePlatforms;
-
     private float spawnTimeObstacles;
-
-    private float deleteTimeObstacles;
 
     // Start is called before the first frame update
     void Start()
@@ -44,11 +34,7 @@ public class MovableObstacle : MonoBehaviour
 
         spawnTimePlatforms = Time.time + spawnSecondsPlatforms;
 
-        deleteTimePlatforms = Time.time + deleteSecondsPlatforms;
-
         spawnTimeObstacles = Time.time + spawnSecondsObstacles;
-
-        deleteTimeObstacles = Time.time + deleteSecondsObstacles;
     }
 
     // Update is called once per frame
@@ -60,11 +46,7 @@ public class MovableObstacle : MonoBehaviour
 
         Spawn(movingPlatforms, platforms, ref spawnTimePlatforms, spawnSecondsPlatforms);
 
-        Delete(movingPlatforms, ref deleteTimePlatforms, deleteSecondsPlatforms);
-
         Spawn(movingObstacles, obstacles, ref spawnTimeObstacles, spawnSecondsObstacles);
-
-        Delete(movingObstacles, ref deleteTimeObstacles, deleteSecondsObstacles);
     }
 
     // Moves Obstacles if they exist
@@ -91,23 +73,6 @@ public class MovableObstacle : MonoBehaviour
             obstacleList.Add(obstacle);
 
             spawnTime += spawnSeconds;
-        }
-    }
-
-    // Deletes moving Obstacles after a certain time in seconds
-    private void Delete(List<Obstacle> obstacleList, ref float deleteTime, float deleteSeconds)
-    {
-        if (Time.time > deleteTime)
-        {
-            Obstacle platformRemove = obstacleList.FirstOrDefault();
-
-            if (platformRemove)
-            {
-                obstacleList.Remove(platformRemove);
-                Destroy(GameObject.Find(platformRemove.name));
-
-                deleteTime += deleteSeconds;
-            }
         }
     }
 
