@@ -10,14 +10,14 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private BackgroundElement[] backgroundElements; // Ground
+    private BackgroundElement[] backgroundElements = null; // Ground
 
     [SerializeField]
-    public static List<MovableElement> movableElements; // Background objects
+    public static List<MovableElement> movableElements = null; // Background objects
 
     public static float initPlayerPosition; // Initial player position
 
-    private HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
+    public static HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
 
     //for the source
     private Text distanceText;
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         ScoreSystem.Init();
-        Load();
         _instance = this;
     }
 
@@ -56,6 +55,7 @@ public class GameManager : MonoBehaviour
         movableElements = new List<MovableElement>();
         enemyThresholdCount = enemyThreshold;
         obstacleThresholdCount = obstacleThreshold;
+        highScores = highScores.Load();
     }
 
     private void UpdateDistance()
@@ -95,54 +95,14 @@ public class GameManager : MonoBehaviour
         // Exit to main menu
         if (Input.GetKeyDown("escape"))
         {
-            Save();
+            highScores.Save(dis);
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
-    }
 
-    // Saves scores to file
-    private void Save()
-    {
-        // Add and sort entries
-        HighScoreEntry highScoreEntry = new HighScoreEntry { score = dis };
-
-        highScores.highScoreEntries.Add(highScoreEntry);
-
-        highScores.highScoreEntries = highScores.highScoreEntries.OrderByDescending(x => x.score).Take(10).ToList();
-
-        string json = JsonUtility.ToJson(highScores);
-
-        ScoreSystem.Save(json);
-    }
-
-    // Loads scores from file
-    private void Load()
-    {
-        string scoreString = ScoreSystem.Load();
-
-        if (scoreString != null)
+        if (CharacterMovement.death)
         {
-            highScores = JsonUtility.FromJson<HighScores>(scoreString);
+            highScores.Save(dis);
         }
-    }
-
-    /*
-     * Inner HighScores class
-     * Houses List of HighScoreEntries
-     */
-    private class HighScores
-    {
-        public List<HighScoreEntry> highScoreEntries;
-    }
-
-    /*
-     * Inner HighScoreEntryClass
-     * A serializable highscore entry
-     */
-    [System.Serializable]
-    private class HighScoreEntry
-    {
-        public int score;
     }
 }

@@ -7,13 +7,13 @@ using UnityEngine;
 public class BackgroundElement : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    private float speed = 0;
 
     [SerializeField]
-    private Transform neighbour;
+    private Transform neighbour = null;
 
     [SerializeField]
-    private MovableElement[] movableElements;
+    private MovableElement[] movableElements = null;
 
     private MovableElement currentObject = null;
 
