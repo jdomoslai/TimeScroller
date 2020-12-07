@@ -21,7 +21,7 @@ public class HighScoreTable : MonoBehaviour
         entryTemplate = entryContainer.Find("HighScoreEntryTemplate");
         entryTemplate.gameObject.SetActive(false);
 
-        Load();
+        highScores = highScores.Load();
 
         // Sort entries
         highScores.highScoreEntries = highScores.highScoreEntries.OrderByDescending(x => x.score).Take(10).ToList();
@@ -54,35 +54,5 @@ public class HighScoreTable : MonoBehaviour
         entryTransform.Find("Background").gameObject.SetActive(rank % 2 == 0);
 
         transformList.Add(entryTransform);
-    }
-
-    // Loads scores from file
-    private void Load()
-    {
-        string scoreString = ScoreSystem.Load();
-
-        if (scoreString != null)
-        {
-            highScores = JsonUtility.FromJson<HighScores>(scoreString);
-        }
-    }
-
-    /*
-     * Inner HighScores class
-     * Houses List of HighScoreEntries
-     */
-    private class HighScores
-    {
-        public List<HighScoreEntry> highScoreEntries;
-    }
-
-    /*
-     * Inner HighScoreEntryClass
-     * A serializable highscore entry
-     */
-    [System.Serializable]
-    private class HighScoreEntry
-    {
-        public int score;
     }
 }

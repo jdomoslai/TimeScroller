@@ -31,12 +31,19 @@ public class CharacterMovement : MonoBehaviour
     private int jumps;
     //private float horizontalPos = 0.0f; 
 
+    //private HighScores highScores = new HighScores { highScoreEntries = new List<HighScoreEntry>() };
+    public static bool death;
+
     // Start is called before the first frame update
     private void Start()
     {
         //facingRight = true;
         characterRBody = GetComponent<Rigidbody2D>();
         jumps = 1;
+
+        death = false;
+
+        //highScores = highScores.Load();
     }
 
     // Update is called once per frame
@@ -99,8 +106,11 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else
                 {
+                    //GameManager.highScores.Save(GameManager.dis);
+                    death = true;
+                    
                     //player dies, restart the scene
-                    SceneManager.LoadScene("Game");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 }
             }
         }
