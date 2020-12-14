@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Individual scores
+[Aa]ssets/Scores/
+[Aa]ssets/Scores.meta

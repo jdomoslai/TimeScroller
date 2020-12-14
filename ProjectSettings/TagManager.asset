@@ -7,6 +7,9 @@ TagManager:
   - Reset
   - Interactable
   - Ground
+  - PowerReset
+  - BonusDistance
+  - BonusScore
   - man
   layers:
   - Default
@@ -53,4 +56,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 1192922071
+    locked: 0
+  - name: Bonus
+    uniqueID: 410204841
     locked: 0

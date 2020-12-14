@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovableElement : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    private float speed = 0;
 
     // Moves GameObjects to the left
     public void Move()

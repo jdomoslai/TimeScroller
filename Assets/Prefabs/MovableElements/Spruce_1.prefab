@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7438488676818164810}
   - component: {fileID: 5285452587561490237}
   - component: {fileID: 5178754111864603792}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Spruce_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
