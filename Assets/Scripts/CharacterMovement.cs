@@ -106,7 +106,6 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else
                 {
-                    //GameManager.highScores.Save(GameManager.dis);
                     death = true;
                     
                     //player dies, restart the scene
