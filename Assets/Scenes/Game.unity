@@ -1765,6 +1765,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: AI
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3298848283078871984, guid: 13e8aad48ed9ada479a8bd875491988f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13e8aad48ed9ada479a8bd875491988f, type: 3}
