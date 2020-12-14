@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         }
 
         // AI death
-        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < -10.87f)  // Offset from player position of 0.13f
+        if (GameObject.FindGameObjectWithTag("Player").transform.position.x < -7.87f)  // Offset from player position of 0.13f
         {
             highScores.Save(dis);
             //player dies, restart the scene
