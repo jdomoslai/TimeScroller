@@ -10,6 +10,7 @@ TagManager:
   - PowerReset
   - BonusDistance
   - BonusScore
+  - man
   layers:
   - Default
   - TransparentFX
